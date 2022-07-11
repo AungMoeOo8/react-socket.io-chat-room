@@ -3,6 +3,7 @@ const path = require("path");
 const { createServer } = require("http");
 const { Server, Socket } = require("socket.io");
 
+const PORT = process.env.PORT || 4000;
 const app = express();
 const httpServer = createServer(app);
 
@@ -39,6 +40,4 @@ io.on("connection", (socket) => {
   );
 });
 
-httpServer.listen(process.env.PORT || 4000, () =>
-  console.log("server listening on port 4000")
-);
+httpServer.listen(PORT, () => console.log("server listening on port " + PORT));
